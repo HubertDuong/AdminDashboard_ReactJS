@@ -11,13 +11,13 @@ const Dropdown = (props) => {
     clickOutSideRef(refDropdownContent, refDropdownToggel)
 
     return (
-        <div className='dropdown'>
+        <div className="dropdown">
             <button ref={refDropdownToggel} className="dropdown__toggle">
                 {
                     props.icon ? (<i className={props.icon}></i>) : ''
                 }
                 {
-                    props.badge ? (<span className='dropdown__toggle-badge'>{props.badge}</span>) : ''
+                    props.badge ? (<span className="dropdown__toggle-badge">{props.badge}</span>) : ''
                 }
                 {
                     props.customToggle ? props.customToggle() : ''
