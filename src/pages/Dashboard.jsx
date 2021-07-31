@@ -1,10 +1,39 @@
 import React from 'react'
 import Chart from 'react-apexcharts'
-import StatusCard from '../components/status-card/StatusCard'
-
-import { chartOptions, topCustomers } from './constant'
-import statusCards from '../assets/json-data/status-card-data.json'
 import { Link } from 'react-router-dom'
+import StatusCard from '../components/status-card/StatusCard'
+import Table from '../components/table/Table'
+import Badge from '../components/badge/Badge'
+
+import { chartOptions, topCustomers, latestOrders, orderStatus } from './constant'
+import statusCards from '../assets/json-data/status-card-data.json'
+
+const renderCustomerHead = (item, index) => (
+    <th key={index}>{item}</th>
+)
+const renderCustomerBody = (item, index) => (
+    <tr key={index}>
+        <td>{item.username}</td>
+        <td>{item.order}</td>
+        <td>{item.price}</td>
+    </tr>
+)
+
+const renderOrderHead = (item, index) => (
+    <th key={index}>{item}</th>
+)
+
+const renderOrderBody = (item, index) => (
+    <tr key={index}>
+        <td>{item.id}</td>
+        <td>{item.user}</td>
+        <td>{item.price}</td>
+        <td>{item.date}</td>
+        <td>
+            <Badge type={orderStatus[item.status]} content={item.status}/>
+        </td>
+    </tr>
+)
 
 const Dashboard = () => {
     return (
@@ -42,10 +71,31 @@ const Dashboard = () => {
                             <h3>top customers</h3>
                         </div>
                         <div className="card__body">
-                            {/* body */}
+                            <Table
+                                headData={topCustomers.head}
+                                renderHead={renderCustomerHead}
+                                bodyData={topCustomers.body}
+                                renderBody={renderCustomerBody} />
                         </div>
                         <div className="card__footer">
                             <Link to="/">view all</Link>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-8">
+                    <div className="card">
+                        <div className="card__header">
+                            <h3>latest orders</h3>
+                        </div>
+                        <div className="card__body">
+                            <Table
+                                 headData={latestOrders.header}
+                                 renderHead={renderOrderHead}
+                                 bodyData={latestOrders.body}
+                                 renderBody={renderOrderBody} />
+                        </div>
+                        <div className="card_footer">
+                        <Link to="/">view all</Link>
                         </div>
                     </div>
                 </div>
