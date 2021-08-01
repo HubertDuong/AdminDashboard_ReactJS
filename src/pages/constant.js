@@ -117,3 +117,13 @@ export const orderStatus = {
     "paid": "success",
     "refund": "danger"
 }
+
+export const customerTableHead = [
+    '',
+    'name',
+    'email',
+    'phone',
+    'total orders',
+    'total spend',
+    'location'
+]
