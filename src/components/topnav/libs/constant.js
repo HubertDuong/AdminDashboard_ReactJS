@@ -1,4 +1,4 @@
-import userImage from '../../assets/images/zoro.png'
+import userImage from '../../../assets/images/zoro.png'
 
 export const currentUser = {
     displayName: 'Roronoa Zoro',

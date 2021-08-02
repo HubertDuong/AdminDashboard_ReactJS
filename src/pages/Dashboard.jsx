@@ -1,12 +1,16 @@
 import React from 'react'
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 import StatusCard from '../components/status-card/StatusCard'
 import Table from '../components/table/Table'
 import Badge from '../components/badge/Badge'
 
-import { chartOptions, topCustomers, latestOrders, orderStatus } from './constant'
+import { themeModeLight } from '../components/theme-menu/libs/constants'
+import { chartOptions, topCustomers, latestOrders, orderStatus } from './libs/constant'
 import statusCards from '../assets/json-data/status-card-data.json'
+
 
 const renderCustomerHead = (item, index) => (
     <th key={index}>{item}</th>
@@ -36,6 +40,8 @@ const renderOrderBody = (item, index) => (
 )
 
 const Dashboard = () => {
+    const currMode = useSelector(state => state.themeReducer.mode)
+
     return (
         <div>
             <h2 className="page-header">
@@ -59,7 +65,10 @@ const Dashboard = () => {
                 <div className="col-6">
                     <div className="card full-height">
                         <Chart
-                            options={chartOptions.options}
+                            options={{
+                                ...chartOptions.options,
+                                theme: { mode: currMode === themeModeLight ? 'dark' : 'light'}
+                            }}
                             series={chartOptions.series}
                             type="line"
                             height="100%" />

@@ -29,8 +29,6 @@ const Table = (props) => {
         setDataShow(bodyData.slice(start, end))
     }
 
-    console.log(range);
-
     return (
         <div>
             <div className="table-wrapper">

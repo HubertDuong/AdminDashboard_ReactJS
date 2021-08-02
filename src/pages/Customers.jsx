@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from '../components/table/Table'
 
-import { customerTableHead } from './constant'
+import { customerTableHead } from './libs/constant'
 import customerList from '../assets/json-data/customers-list.json'
 
 const renderHead = (item, index) => (

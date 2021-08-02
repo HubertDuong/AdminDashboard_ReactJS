@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { clickOutSideRef } from './service'
+import { clickOutSideRef } from '../libs/service'
 
 import './dropdown.css'
 

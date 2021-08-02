@@ -6,11 +6,12 @@ import './top-nav.css'
 import Dropdown from '../dropdown/Dropdown'
 import UserToggle from './components/UserToggle'
 import NotificationItem from './components/NotificationItem'
+import ThemeMenu from '../theme-menu/ThemeMenu'
 
 import userMenu from '../../assets/json-data/user_menus.json'
 import notification from '../../assets/json-data/notification.json'
 
-import { currentUser } from './constant'
+import { currentUser } from './libs/constant'
 
 const renderNotificationItem = (item, index) => {
     return (
@@ -70,7 +71,7 @@ const TopNav = (props) => {
                         renderFooter={renderFooter} />
                 </div>
                 <div className="topnav_right-item">
-                    <Dropdown />
+                    <ThemeMenu />
                 </div>
             </div>
         </div>
